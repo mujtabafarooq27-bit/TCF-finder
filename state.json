@@ -1,0 +1,18 @@
+{
+  "Vancouver": {
+    "text_hash": "64d1d0a26f19f92284578328b4eae75a6e86fb2d2dde442e02b291c54e53338b",
+    "row_count": 50
+  },
+  "Edmonton": {
+    "text_hash": "419cf0db336f0f517e9d4973fd7ce28367d6c92fcff99ef6481eb45468b2c929",
+    "row_count": 22
+  },
+  "Calgary": {
+    "text_hash": "ae5e1816326f563d06c3f31d973ec8e728b3263c1c9a388250e419be3a027aa8",
+    "sublinks": {
+      "https://www.afcalgary.ca/exams/tcf/tcf-registrations-open-1607/": {
+        "sold_out": true
+      }
+    }
+  }
+}
