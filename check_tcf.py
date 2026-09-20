@@ -42,7 +42,7 @@ USER_AGENT = (
     "personal monitoring script, low frequency, not a bulk scraper)"
 )
 
-NOT_OPEN_PHRASES = ("opens in", "sold out", "missed the registration", "waitlist full")
+NOT_OPEN_PHRASES = ("sold out", "closed", "full")
 
 # ---------------------------------------------------------------------
 # EDIT THIS: your three pages.
@@ -106,6 +106,7 @@ def parse_spot_table(soup: BeautifulSoup, base_url: str) -> list[dict]:
 
             spots_left = None
             status_bits = []
+            has_price = any(c.startswith("$") for c in cells)
             for cell in cells:
                 if spots_left is None and re.fullmatch(r"\d{1,3}", cell):
                     spots_left = int(cell)
@@ -113,11 +114,28 @@ def parse_spot_table(soup: BeautifulSoup, base_url: str) -> list[dict]:
                 if any(phrase in lower for phrase in NOT_OPEN_PHRASES):
                     status_bits.append(cell)
 
-            # Skip obvious header rows (no digits anywhere, just labels)
-            if spots_left is None and not status_bits:
+            # Skip rows that don't look like real session rows at all
+            # (headers, labels) - a real row always has a spot count, a
+            # price, or a recognized "not open" phrase.
+            if spots_left is None and not status_bits and not has_price:
                 continue
 
-            is_open = spots_left is not None and spots_left > 0 and not status_bits
+            # Anything that ISN'T explicitly "Sold Out" / "Closed" / "Full"
+            # counts as worth telling you about - including "Opens in ...",
+            # "Book now", or wording we haven't seen before.
+            is_open = not status_bits
+
+            # A stable identifier for this session that ignores the
+            # spots/price/status columns, so we can tell "still open"
+            # apart from "just opened" across runs.
+            identity_cells = [
+                c
+                for c in cells
+                if not re.fullmatch(r"\d{1,3}", c)
+                and not c.startswith("$")
+                and not any(p in c.lower() for p in NOT_OPEN_PHRASES)
+            ]
+            session_key = " | ".join(identity_cells) or " | ".join(cells)
 
             register_window = None
             link = tr.find("a", href=True)
@@ -132,6 +150,7 @@ def parse_spot_table(soup: BeautifulSoup, base_url: str) -> list[dict]:
             rows_out.append(
                 {
                     "raw": " | ".join(cells),
+                    "session_key": session_key,
                     "spots_left": spots_left,
                     "status": ", ".join(status_bits) if status_bits else None,
                     "is_open": is_open,
@@ -234,17 +253,37 @@ def send_email(subject: str, body: str) -> None:
 
 
 def summarize_table_result(result: dict, prev: dict | None) -> tuple[bool, list[str]]:
-    """Returns (should_alert, message_lines)."""
+    """Returns (should_alert, message_lines). Only alerts for sessions that
+    are NEWLY open (weren't open on the previous run), so you don't get a
+    fresh email every 30 minutes for the same still-open row."""
     lines = []
     should_alert = False
+    prev_sessions = (prev or {}).get("sessions", {})
 
-    if result["open_rows"]:
+    newly_open = [
+        r for r in result["open_rows"]
+        if not prev_sessions.get(r["session_key"], {}).get("is_open")
+    ]
+    still_open = [
+        r for r in result["open_rows"]
+        if prev_sessions.get(r["session_key"], {}).get("is_open")
+    ]
+
+    if newly_open:
         should_alert = True
-        lines.append(f"OPEN SLOTS FOUND ({len(result['open_rows'])}):")
-        for row in result["open_rows"]:
+        lines.append(
+            f"WORTH CHECKING ({len(newly_open)}) - not marked Sold Out / Closed / Full:"
+        )
+        for row in newly_open:
             lines.append(f"  - {row['raw']}")
             if row.get("register_window"):
                 lines.append(f"    Registration window: {row['register_window']}")
+        lines.append("")
+
+    if still_open:
+        lines.append(f"Still in that state from before ({len(still_open)}), FYI:")
+        for row in still_open:
+            lines.append(f"  - {row['raw']}")
         lines.append("")
 
     # Even rows that aren't open yet are worth surfacing if we found an
@@ -257,13 +296,13 @@ def summarize_table_result(result: dict, prev: dict | None) -> tuple[bool, list[
             lines.append(f"    Registration window: {row['register_window']}")
         lines.append("")
 
-    if prev is not None and prev.get("text_hash") != result["text_hash"] and not result["open_rows"]:
-        # page changed but our structured parser didn't find an open row -
-        # tell the user anyway so nothing gets missed.
+    if prev is not None and prev.get("text_hash") != result["text_hash"] and not newly_open:
+        # page changed but our structured parser didn't find a newly-open
+        # row - tell the user anyway so nothing gets missed.
         should_alert = True
         lines.append(
             "Page content changed but the automatic parser didn't clearly "
-            "identify an open slot. Check the page directly:"
+            "identify a newly open slot. Check the page directly:"
         )
         lines.append(result["url"])
         lines.append("")
@@ -323,7 +362,10 @@ def main() -> int:
         should_alert, lines = summarize_table_result(result, prev)
         new_state[name] = {
             "text_hash": result["text_hash"],
-            "row_count": len(result["rows"]),
+            "sessions": {
+                row["session_key"]: {"is_open": row["is_open"], "spots_left": row["spots_left"]}
+                for row in result["rows"]
+            },
         }
         # Always print every row to the run log (not email) so you can check
         # the Actions log any time to see current spots/registration windows
@@ -349,6 +391,20 @@ def main() -> int:
             "text_hash": result["text_hash"],
             "sublinks": {u: {"sold_out": i.get("sold_out")} for u, i in result["sublinks"].items() if "error" not in i},
         }
+        # Always print what was found, same as Vancouver/Edmonton above.
+        print(f"[Calgary] {len(result['sublinks'])} registration link(s) found on the main page:")
+        if not result["sublinks"]:
+            print(
+                "    (none - every month is probably showing plain 'SOLD OUT' "
+                "text right now, with no clickable Registrations link)"
+            )
+        for link_url, info in result["sublinks"].items():
+            if "error" in info:
+                print(f"    {link_url}  -> ERROR fetching this link: {info['error']}")
+                continue
+            status = "SOLD OUT (inside)" if info["sold_out"] else "NOT marked sold out - worth checking"
+            print(f"    {link_url}")
+            print(f"        Status: {status}")
         if prev is None:
             print(f"[init] Calgary: baseline recorded ({len(result['sublinks'])} registration links found)")
         elif should_alert:
