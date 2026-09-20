@@ -1,0 +1,41 @@
+name: Check TCF exam pages
+
+on:
+  schedule:
+    # Runs every 30 minutes. GitHub Actions cron can drift a few minutes
+    # under load; that's fine for this use case. Adjust as you like, but
+    # keep it reasonable (e.g. no more often than every 10-15 min) so
+    # you're not hammering the sites.
+    - cron: "*/30 * * * *"
+  workflow_dispatch: {}  # lets you trigger a run manually from the Actions tab
+
+permissions:
+  contents: write  # needed so the workflow can commit the updated state.json
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run checker
+        env:
+          EMAIL_ADDRESS: ${{ secrets.EMAIL_ADDRESS }}
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+        run: python check_tcf.py
+
+      - name: Commit updated state
+        run: |
+          git config user.name "tcf-watcher-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add state.json
+          git diff --cached --quiet || git commit -m "Update state [skip ci]"
+          git push
