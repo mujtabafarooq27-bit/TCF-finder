@@ -1,6 +1,6 @@
 {
   "Vancouver": {
-    "text_hash": "64d1d0a26f19f92284578328b4eae75a6e86fb2d2dde442e02b291c54e53338b",
+    "text_hash": "bcdac09b09c60b515dad6417c6db87e67ec53a193b5dca3adf54d70f5b5cd37d",
     "sessions": {
       "TCF-Canada December 11, 2026 | Written & OralFriday 11 Dec 2026 - 9am▸4pm | Sep 14 2026 3:00pm -Sep 21 2026 4:00pm | Alliance Francaise - 6161 Cambie St., Vancouver": {
         "is_open": false,
@@ -40,7 +40,7 @@
       },
       "TCF-Canada Novembre 16, 2026 | Written & OralMonday 16 Nov 2026 - 9am▸4pm | Sep 1 2026 3:00pm -Sep 8 2026 4:00pm | Alliance Francaise - 6161 Cambie St., Vancouver": {
         "is_open": false,
-        "spots_left": null
+        "spots_left": 1
       },
       "TCF-Canada Novembre 18, 2026 | Written & OralWednesday 18 Nov 2026 - 9am▸4pm | Sep 1 2026 3:00pm -Sep 8 2026 4:00pm | Alliance Francaise - 6161 Cambie St., Vancouver": {
         "is_open": false,
