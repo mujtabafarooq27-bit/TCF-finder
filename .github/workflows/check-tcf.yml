@@ -6,7 +6,7 @@ on:
     # under load; that's fine for this use case. Adjust as you like, but
     # keep it reasonable (e.g. no more often than every 10-15 min) so
     # you're not hammering the sites.
-    - cron: "*/30 * * * *"
+    - cron: "*/10 * * * *"
   workflow_dispatch: {}  # lets you trigger a run manually from the Actions tab
 
 permissions:
