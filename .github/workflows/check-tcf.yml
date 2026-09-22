@@ -2,7 +2,7 @@ name: Check TCF exam pages
 
 on:
   schedule:
-    # Runs every 30 minutes. GitHub Actions cron can drift a few minutes
+    # Runs every 10 minutes. GitHub Actions cron can drift a few minutes
     # under load; that's fine for this use case. Adjust as you like, but
     # keep it reasonable (e.g. no more often than every 10-15 min) so
     # you're not hammering the sites.
