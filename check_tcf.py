@@ -60,6 +60,19 @@ ASHTON_URL = "https://ashtontesting.ca/tcf-canada-test/"
 
 def get_soup(url: str) -> BeautifulSoup:
     resp = requests.get(url, headers={"User-Agent": USER_AGENT}, timeout=TIMEOUT_SECONDS)
+    if resp.status_code == 403:
+        # Some sites' generic bot-protection blocks non-browser-looking
+        # requests even when robots.txt doesn't disallow us. Retry once
+        # looking like an ordinary browser before giving up.
+        browser_headers = {
+            "User-Agent": (
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+            ),
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+            "Accept-Language": "en-US,en;q=0.9",
+        }
+        resp = requests.get(url, headers=browser_headers, timeout=TIMEOUT_SECONDS)
     resp.raise_for_status()
     return BeautifulSoup(resp.text, "html.parser")
 
@@ -128,15 +141,19 @@ def parse_spot_table(soup: BeautifulSoup, base_url: str) -> list[dict]:
 
             # Anything that ISN'T explicitly "Sold Out" / "Closed" / "Full"
             # counts as worth telling you about - including "Opens in ...",
-            # "Book now", or wording we haven't seen before.
+            # "Book now", "Spots held" (a held spot can get released back),
+            # or wording we haven't seen before.
             is_open = not status_bits
 
             # A stable identifier for this session that ignores the
-            # spots/price/status columns, so we can tell "still open"
-            # apart from "just opened" across runs.
+            # spots/price/status columns (including the last column,
+            # which is always some flavour of a volatile booking-action
+            # message), so we can tell "still open" apart from "just
+            # opened" across runs even when that wording shifts slightly.
+            body_cells = cells[:-1] if len(cells) > 1 else cells
             identity_cells = [
                 c
-                for c in cells
+                for c in body_cells
                 if not re.fullmatch(r"\d{1,3}", c)
                 and not c.startswith("$")
                 and not any(p in c.lower() for p in NOT_OPEN_PHRASES)
