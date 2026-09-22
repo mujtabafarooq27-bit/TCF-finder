@@ -1,22 +1,16 @@
 #!/usr/bin/env python3
 """
 TCF exam availability watcher for Alliance Française Vancouver, Calgary,
-and Edmonton, plus Ashton Testing Services (a private centre, also in
-Vancouver).
+and Edmonton.
 
-Vancouver & Edmonton (Alliance Française): both use a table listing
-(Exam date / Registration dates / Location / Spots left / Price /
-Bookings). We parse that table and flag any row that isn't marked
-"Sold Out" / "Closed" / "Full".
+Vancouver & Edmonton: both use a table listing (Exam date / Registration
+dates / Location / Spots left / Price / Bookings). We parse that table
+and flag any row that isn't marked "Sold Out" / "Closed" / "Full".
 
 Calgary: the registration-process page lists months that are either
 "SOLD OUT" or have a "Registrations" link. We follow every such link and
 check the linked page too, since a month can show a live "Registrations"
 button while the page behind it is actually sold out.
-
-Ashton Testing Services: lists sessions as plain text lines like
-"Nov 15th 9.00 am (FULL)". We flag any line that isn't marked Full /
-Closed / Sold Out.
 
 In all cases we ALSO keep a full-text hash per page as a safety net, so
 if the structured parsing ever misses something (site redesign, unusual
@@ -55,7 +49,6 @@ NOT_OPEN_PHRASES = ("sold out", "closed", "full")
 VANCOUVER_URL = "https://www.alliancefrancaise.ca/en/language/exams/tcf-canada/?s8-datatable1_rows=75"
 CALGARY_URL = "https://www.afcalgary.ca/exams/tcf/registration-process/"
 EDMONTON_URL = "https://www.afedmonton.com/en/exams/tcf/?s8-datatable1_rows=75"
-ASHTON_URL = "https://ashtontesting.ca/tcf-canada-test/"
 
 
 def get_soup(url: str) -> BeautifulSoup:
@@ -196,56 +189,6 @@ def check_simple_table(name: str, url: str) -> dict:
         "rows": rows,
         "open_rows": open_rows,
         "kind": "table",
-    }
-
-
-# ---------------------------------------------------------------------
-# Ashton Testing Services: plain text lines, not a table.
-#
-# The page lists sessions as lines like "Nov 15th 9.00 am (FULL)". The
-# status tag lives in the page's HTML at all times (confirmed directly);
-# it's only ever visually hidden by CSS at some screen widths, which a
-# text-based scraper doesn't care about either way.
-# ---------------------------------------------------------------------
-
-ASHTON_SESSION_RE = re.compile(
-    r"^(.+?\d\s*(?:am|pm))\s*(?:\(([^)]*)\))?\s*$", re.IGNORECASE
-)
-
-
-def check_ashton(name: str, url: str) -> dict:
-    soup = get_soup(url)
-    text = page_text(soup)
-
-    rows = []
-    for line in text.splitlines():
-        line = line.strip()
-        match = ASHTON_SESSION_RE.match(line)
-        if not match:
-            continue
-        date_time = match.group(1).strip()
-        status_text = (match.group(2) or "").strip()
-        is_open = not any(p in status_text.lower() for p in NOT_OPEN_PHRASES)
-        rows.append(
-            {
-                "raw": line,
-                "session_key": date_time,
-                "spots_left": None,
-                "status": status_text or None,
-                "is_open": is_open,
-                "register_window": None,
-            }
-        )
-
-    open_rows = [r for r in rows if r["is_open"]]
-    return {
-        "name": name,
-        "url": url,
-        "text_hash": hash_text(text),
-        "text": text,
-        "rows": rows,
-        "open_rows": open_rows,
-        "kind": "ashton",
     }
 
 
@@ -421,7 +364,6 @@ def main() -> int:
     checks = [
         ("Vancouver", VANCOUVER_URL, check_simple_table),
         ("Edmonton", EDMONTON_URL, check_simple_table),
-        ("Ashton", ASHTON_URL, check_ashton),
     ]
 
     for name, url, fn in checks:
