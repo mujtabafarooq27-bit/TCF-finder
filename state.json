@@ -94,7 +94,7 @@
         "is_open": false,
         "spots_left": null
       },
-      "TCF-Canada October 16, 2026 | Written & OralFriday 16 Oct 2026 - 8am▸4pm | Sep 14 2026 3:00pm -Sep 22 2026 4:00pm | Alliance Francaise - 320 Columbia St., New Westminster | Spots heldSpots are currently held. It'll be released if unfinished.": {
+      "TCF-Canada October 16, 2026 | Written & OralFriday 16 Oct 2026 - 8am▸4pm | Sep 14 2026 3:00pm -Sep 22 2026 4:00pm | Alliance Francaise - 320 Columbia St., New Westminster": {
         "is_open": true,
         "spots_left": 0
       },
@@ -197,7 +197,7 @@
     }
   },
   "Edmonton": {
-    "text_hash": "9ed69d21e318ba9c771ae1a57528468e36b403fc6aeece241c768c58f8cc1140",
+    "text_hash": "7485b3496d08fe434d97a3faf09a59de0024e6a1a722bda53c6fe0011951b2b8",
     "sessions": {
       "TCF  Canada - September 23 | WrittenWednesday 23 Sep 2026 - 9:20am▸12:20pmOralTo be confirmed | Aug 25 2026 9:55am -Aug 25 2026 10:55am | Alliance Française of Edmonton - Kingsway": {
         "is_open": false,
