@@ -1,6 +1,6 @@
 {
   "Vancouver": {
-    "text_hash": "b0e22d1936edac89c6a1eb480b76bd8ef8017c06076981ab7146141bca2c6a34",
+    "text_hash": "1d46efa13698aec5b3fc553e0bde55fdf68147ed6dc600c5ed93525bd635a292",
     "sessions": {
       "TCF-Canada December 11 , 2026 | Written & OralFriday 11 Dec 2026 - 8am▸4pm | Sep 28 2026 3:00pm -Oct 5 2026 4:00pm | Alliance Francaise - 320 Columbia St., New Westminster": {
         "is_open": false,
@@ -220,7 +220,7 @@
       },
       "TCF-Canada October 30, 2026 | Written & OralFriday 30 Oct 2026 - 9am▸4pm | Jul 6 2026 3:00pm -Aug 31 2026 4:00pm | Alliance Francaise - 6161 Cambie St., Vancouver": {
         "is_open": false,
-        "spots_left": 1
+        "spots_left": null
       },
       "TCF-Canada October 30, 2026 | Written & OralFriday 30 Oct 2026 - 8am▸4pm | Sep 14 2026 3:00pm -Sep 21 2026 4:00pm | Alliance Francaise - 320 Columbia St., New Westminster": {
         "is_open": false,
@@ -242,9 +242,9 @@
         "is_open": false,
         "spots_left": null
       },
-      "TCF-Canada October 9, 2026 | Written & OralFriday 09 Oct 2026 - 9am▸4pm | Jul 6 2026 3:00pm -Sep 11 2026 4:00pm | Alliance Francaise - 6161 Cambie St., Vancouver": {
-        "is_open": false,
-        "spots_left": null
+      "TCF-Canada October 9, 2026 | Written & OralFriday 09 Oct 2026 - 9am▸4pm | Oct 2 2026 2:26pm -Oct 2 2026 4:00pm | Alliance Francaise - 6161 Cambie St., Vancouver": {
+        "is_open": true,
+        "spots_left": 2
       },
       "TCF-Canada October 9, 2026 | Written & OralFriday 09 Oct 2026 - 8am▸4pm | Sep 14 2026 3:00pm -Sep 21 2026 4:00pm | Alliance Francaise - 320 Columbia St., New Westminster": {
         "is_open": false,
@@ -261,7 +261,7 @@
     }
   },
   "Edmonton": {
-    "text_hash": "807eab8d4edf183ae1e6e0677d3abaeda87cd2e054ec73791ff0abc4ba55324a",
+    "text_hash": "749f1c3138cd4c4d61c155ee5e9455b3a41e66d34df48365e8848c724c4422bc",
     "sessions": {
       "TCF  Canada - October 2 | WrittenFriday 02 Oct 2026 - 9:20am▸12:20pmOralTo be confirmed | Sep 2 2026 11:15am -Sep 2 2026 12:15pm | Alliance Française of Edmonton - Kingsway": {
         "is_open": false,
