@@ -1,6 +1,6 @@
 {
   "Vancouver": {
-    "text_hash": "441fed92670d63a0e3de2af53925759891d43c82313116a6309f594a58a0be78",
+    "text_hash": "528266e70afbe8b9f1e808677d50149c165ca0e0739434eb12c14173b12e30a5",
     "sessions": {
       "TCF-Canada December 11 , 2026 | Written & OralFriday 11 Dec 2026 - 8am▸4pm | Sep 28 2026 3:00pm -Oct 5 2026 4:00pm | Alliance Francaise - 320 Columbia St., New Westminster": {
         "is_open": false,
@@ -74,37 +74,73 @@
         "is_open": true,
         "spots_left": 14
       },
+      "TCF-Canada January 09, 2027 | Written & OralSaturday 09 Jan 2027 - 8am▸4pm | Nov 2 2026 3:00pm -Nov 9 2026 4:00pm | Alliance Francaise - 320 Columbia St., New Westminster": {
+        "is_open": true,
+        "spots_left": 16
+      },
       "TCF-Canada January 11, 2027 | Written & OralMonday 11 Jan 2027 - 9am▸4pm | Nov 2 2026 3:00pm -Nov 9 2026 4:00pm | Alliance Francaise - 6161 Cambie St., Vancouver": {
         "is_open": true,
         "spots_left": 40
+      },
+      "TCF-Canada January 11, 2027 | Written & OralMonday 11 Jan 2027 - 8am▸4pm | Nov 2 2026 3:00pm -Nov 9 2026 4:00pm | Alliance Francaise - 320 Columbia St., New Westminster": {
+        "is_open": true,
+        "spots_left": 16
       },
       "TCF-Canada January 13, 2027 | Written & OralWednesday 13 Jan 2027 - 9am▸4pm | Nov 2 2026 3:00pm -Nov 9 2026 4:00pm | Alliance Francaise - 6161 Cambie St., Vancouver": {
         "is_open": true,
         "spots_left": 40
       },
+      "TCF-Canada January 13, 2027 | Written & OralWednesday 13 Jan 2027 - 8am▸4pm | Nov 2 2026 3:00pm -Nov 9 2026 4:00pm | Alliance Francaise - 320 Columbia St., New Westminster": {
+        "is_open": true,
+        "spots_left": 16
+      },
       "TCF-Canada January 15, 2027 | Written & OralFriday 15 Jan 2027 - 9am▸4pm | Nov 2 2026 3:00pm -Nov 9 2026 4:00pm | Alliance Francaise - 6161 Cambie St., Vancouver": {
         "is_open": true,
         "spots_left": 28
+      },
+      "TCF-Canada January 15, 2027 | Written & OralFriday 15 Jan 2027 - 8am▸4pm | Nov 2 2026 3:00pm -Nov 9 2026 4:00pm | Alliance Francaise - 320 Columbia St., New Westminster": {
+        "is_open": true,
+        "spots_left": 14
       },
       "TCF-Canada January 18, 2027 | Written & OralMonday 18 Jan 2027 - 9am▸4pm | Nov 2 2026 3:00pm -Nov 9 2026 4:00pm | Alliance Francaise - 6161 Cambie St., Vancouver": {
         "is_open": true,
         "spots_left": 40
       },
+      "TCF-Canada January 18, 2027 | Written & OralMonday 18 Jan 2027 - 8am▸4pm | Nov 2 2026 3:00pm -Nov 9 2026 4:00pm | Alliance Francaise - 320 Columbia St., New Westminster": {
+        "is_open": true,
+        "spots_left": 16
+      },
       "TCF-Canada January 20, 2027 | Written & OralWednesday 20 Jan 2027 - 9am▸4pm | Nov 2 2026 3:00pm -Nov 9 2026 4:00pm | Alliance Francaise - 6161 Cambie St., Vancouver": {
         "is_open": true,
         "spots_left": 40
+      },
+      "TCF-Canada January 20, 2027 | Written & OralWednesday 20 Jan 2027 - 8am▸4pm | Nov 2 2026 3:00pm -Nov 9 2026 4:00pm | Alliance Francaise - 320 Columbia St., New Westminster": {
+        "is_open": true,
+        "spots_left": 16
       },
       "TCF-Canada January 22, 2027 | Written & OralFriday 22 Jan 2027 - 9am▸4pm | Nov 2 2026 3:00pm -Nov 9 2026 4:00pm | Alliance Francaise - 6161 Cambie St., Vancouver": {
         "is_open": true,
         "spots_left": 40
       },
+      "TCF-Canada January 22, 2027 | Written & OralFriday 22 Jan 2027 - 8am▸4pm | Nov 2 2026 3:00pm -Nov 9 2026 4:00pm | Alliance Francaise - 320 Columbia St., New Westminster": {
+        "is_open": true,
+        "spots_left": 14
+      },
       "TCF-Canada January 25, 2027 | Written & OralMonday 25 Jan 2027 - 9am▸4pm | Nov 2 2026 3:00pm -Nov 9 2026 4:00pm | Alliance Francaise - 6161 Cambie St., Vancouver": {
         "is_open": true,
         "spots_left": 40
       },
+      "TCF-Canada January 25, 2027 | Written & OralMonday 25 Jan 2027 - 8am▸4pm | Nov 2 2026 3:00pm -Nov 9 2026 4:00pm | Alliance Francaise - 320 Columbia St., New Westminster": {
+        "is_open": true,
+        "spots_left": 16
+      },
       "TCF-Canada January 27, 2027 | Written & OralWednesday 27 Jan 2027 - 9am▸4pm | Nov 2 2026 3:00pm -Nov 9 2026 4:00pm | Alliance Francaise - 6161 Cambie St., Vancouver": {
         "is_open": true,
         "spots_left": 28
+      },
+      "TCF-Canada January 27, 2027 | Written & OralWednesday 27 Jan 2027 - 8am▸4pm | Nov 2 2026 3:00pm -Nov 9 2026 4:00pm | Alliance Francaise - 320 Columbia St., New Westminster": {
+        "is_open": true,
+        "spots_left": 8
       },
       "TCF-Canada January 29, 2027 | Written & OralFriday 29 Jan 2027 - 9am▸4pm | Nov 2 2026 3:00pm -Nov 9 2026 4:00pm | Alliance Francaise - 6161 Cambie St., Vancouver": {
         "is_open": true,
@@ -263,38 +299,6 @@
         "spots_left": null
       },
       "TCF-Canada October 28, 2026 | Written & OralWednesday 28 Oct 2026 - 8am▸4pm | Sep 14 2026 3:00pm -Sep 21 2026 4:00pm | Alliance Francaise - 320 Columbia St., New Westminster": {
-        "is_open": false,
-        "spots_left": null
-      },
-      "TCF-Canada October 30, 2026 | Written & OralFriday 30 Oct 2026 - 9am▸4pm | Jul 6 2026 3:00pm -Aug 31 2026 4:00pm | Alliance Francaise - 6161 Cambie St., Vancouver": {
-        "is_open": false,
-        "spots_left": null
-      },
-      "TCF-Canada October 30, 2026 | Written & OralFriday 30 Oct 2026 - 8am▸4pm | Sep 14 2026 3:00pm -Sep 21 2026 4:00pm | Alliance Francaise - 320 Columbia St., New Westminster": {
-        "is_open": false,
-        "spots_left": null
-      },
-      "TCF-Canada October 5, 2026 | Written & OralMonday 05 Oct 2026 - 9am▸4pm | Jul 6 2026 3:00pm -Aug 31 2026 4:00pm | Alliance Francaise - 6161 Cambie St., Vancouver": {
-        "is_open": false,
-        "spots_left": null
-      },
-      "TCF-Canada October 5, 2026 | Written & OralMonday 05 Oct 2026 - 8am▸4pm | Sep 14 2026 3:00pm -Sep 21 2026 4:00pm | Alliance Francaise - 320 Columbia St., New Westminster": {
-        "is_open": false,
-        "spots_left": null
-      },
-      "TCF-Canada October 7, 2026 | Written & OralWednesday 07 Oct 2026 - 9am▸4pm | Jul 6 2026 3:00pm -Sep 11 2026 4:00pm | Alliance Francaise - 6161 Cambie St., Vancouver": {
-        "is_open": false,
-        "spots_left": null
-      },
-      "TCF-Canada October 7, 2026 | Written & OralWednesday 07 Oct 2026 - 8am▸4pm | Sep 14 2026 3:00pm -Sep 21 2026 4:00pm | Alliance Francaise - 320 Columbia St., New Westminster": {
-        "is_open": false,
-        "spots_left": null
-      },
-      "TCF-Canada October 9, 2026 | Written & OralFriday 09 Oct 2026 - 9am▸4pm | Oct 2 2026 2:26pm -Oct 2 2026 4:00pm | Alliance Francaise - 6161 Cambie St., Vancouver": {
-        "is_open": false,
-        "spots_left": null
-      },
-      "TCF-Canada October 9, 2026 | Written & OralFriday 09 Oct 2026 - 8am▸4pm | Sep 14 2026 3:00pm -Sep 21 2026 4:00pm | Alliance Francaise - 320 Columbia St., New Westminster": {
         "is_open": false,
         "spots_left": null
       },
