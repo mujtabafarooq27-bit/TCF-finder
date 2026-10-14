@@ -1,6 +1,6 @@
 {
   "Vancouver": {
-    "text_hash": "e0984ea47027888967048b20157085657df554de3992160aed9d50353b34459e",
+    "text_hash": "7a265fbe4ba02b8b2cdfb74cafdb9903bcf024ff4c784d239dd551b61cbfd0c2",
     "sessions": {
       "TCF-Canada December 11 , 2026 | Written & OralFriday 11 Dec 2026 - 8am▸4pm | Sep 28 2026 3:00pm -Oct 5 2026 4:00pm | Alliance Francaise - 320 Columbia St., New Westminster": {
         "is_open": false,
@@ -63,8 +63,8 @@
         "spots_left": null
       },
       "TCF-Canada December 9, 2026 | Written & OralWednesday 09 Dec 2026 - 9am▸4pm | Sep 14 2026 3:00pm -Oct 15 2026 4:00pm | Alliance Francaise - 6161 Cambie St., Vancouver": {
-        "is_open": true,
-        "spots_left": 0
+        "is_open": false,
+        "spots_left": null
       },
       "TCF-Canada February 01, 2027 | Written & OralMonday 01 Feb 2027 - 8am▸4pm | Nov 2 2026 3:00pm -Nov 9 2026 4:00pm | Alliance Francaise - 320 Columbia St., New Westminster": {
         "is_open": true,
@@ -313,7 +313,7 @@
     }
   },
   "Edmonton": {
-    "text_hash": "6b94d80cda714316fca285231bd90975d054f2d6991dddd64f6f677c33c2315c",
+    "text_hash": "f6f85bc7e0eeba29ae20c80e8c6a22ebec55fe678d17e2bc0e27f89ad03d9d13",
     "sessions": {
       "TCF  Canada - October 14 | WrittenWednesday 14 Oct 2026 - 9:20am▸12:20pmOralTo be confirmed | Sep 14 2026 1:33pm -Sep 14 2026 2:33pm | Alliance Française of Edmonton - Kingsway": {
         "is_open": false,
@@ -430,7 +430,7 @@
     }
   },
   "Calgary": {
-    "text_hash": "fd708d26c298b8a073f99094af650d8e03794c0d82becf9c0ac607f21cdb8519",
+    "text_hash": "85db6ba5e4c8627ac5fbedecbaeccfe3a33195a6d4832c38efd0560bdd3b5d7c",
     "sublinks": {
       "https://www.afcalgary.ca/exams/tcf/tcf-registrations-open-1607/": {
         "sold_out": true
