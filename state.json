@@ -1,6 +1,6 @@
 {
   "Vancouver": {
-    "text_hash": "501474fcdca95fd0dfed55bd6a37654e5c273599dc641cd80e835867529f52c8",
+    "text_hash": "2619d892ecc572c2f8d5857a5ed5fadd6f58d89e95f801c714435e8325c4278e",
     "sessions": {
       "TCF-Canada December 11 , 2026 | Written & OralFriday 11 Dec 2026 - 8am▸4pm | Sep 28 2026 3:00pm -Oct 5 2026 4:00pm | Alliance Francaise - 320 Columbia St., New Westminster": {
         "is_open": false,
@@ -446,7 +446,7 @@
     }
   },
   "Calgary": {
-    "text_hash": "85db6ba5e4c8627ac5fbedecbaeccfe3a33195a6d4832c38efd0560bdd3b5d7c",
+    "text_hash": "38edb55feb2d6bd6b07470f0c1717b6ee42d44cc197546993709bfc3f6b11111",
     "sublinks": {
       "https://www.afcalgary.ca/exams/tcf/tcf-registrations-open-1607/": {
         "sold_out": true
