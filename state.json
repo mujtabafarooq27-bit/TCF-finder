@@ -313,7 +313,7 @@
     }
   },
   "Edmonton": {
-    "text_hash": "bf793a6c41ef89d9970893c17e9370936d0c0bb5edf4a3f42a99f32e1e79bb11",
+    "text_hash": "a617a0d069d368dffe17d3f57c6de6c779ee10af354685bbfa23b5253883c512",
     "sessions": {
       "TCF  Canada - October 26 | WrittenMonday 26 Oct 2026 - 9:20am▸12:20pmOralTo be confirmed | Oct 14 2026 10:45am -Oct 14 2026 11:45am | Alliance Française of Edmonton - Kingsway": {
         "is_open": false,
@@ -337,7 +337,7 @@
       },
       "TCF  Canada - October 30 * | WrittenFriday 30 Oct 2026 - 1:30pm▸4:30pmOralTo be confirmed | Oct 21 2026 1:45pm -Oct 21 2026 2:45pm | Alliance Française of Edmonton - Kingsway": {
         "is_open": false,
-        "spots_left": 1
+        "spots_left": null
       },
       "TCF  Canada - November 2 | WrittenMonday 02 Nov 2026 - 9:20am▸12:20pmOralTo be confirmed | Oct 21 2026 1:30pm -Oct 21 2026 2:30pm | Alliance Française of Edmonton - Kingsway": {
         "is_open": false,
@@ -420,6 +420,10 @@
         "spots_left": null
       },
       "TCF  Canada - November 30 | WrittenMonday 30 Nov 2026 - 9:20am▸12:20pmOralTo be confirmed | Oct 26 2026 10:20am -Oct 26 2026 11:20am | Alliance Française of Edmonton - Kingsway": {
+        "is_open": false,
+        "spots_left": null
+      },
+      "TCF  Canada - November 30* | WrittenMonday 30 Nov 2026 - 1:30pm▸4:30pmOralTo be confirmed | Oct 26 2026 2:30pm -Oct 26 2026 3:30pm | Alliance Française of Edmonton - Kingsway": {
         "is_open": false,
         "spots_left": null
       }
