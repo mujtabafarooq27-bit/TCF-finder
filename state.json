@@ -313,7 +313,7 @@
     }
   },
   "Edmonton": {
-    "text_hash": "9af41ce0047eca1efa7ecc0db3120d31afa25da61f328c3189e16c4562cc0ae8",
+    "text_hash": "35b4da26478b4b4db2649e39a14c9120b00895fed1f32b929cce06566ee95632",
     "sessions": {
       "TCF  Canada - November 2 | WrittenMonday 02 Nov 2026 - 9:20am▸12:20pmOralTo be confirmed | Oct 21 2026 1:30pm -Oct 21 2026 2:30pm | Alliance Française of Edmonton - Kingsway": {
         "is_open": false,
@@ -402,11 +402,19 @@
       "TCF  Canada - November 30* | WrittenMonday 30 Nov 2026 - 1:30pm▸4:30pmOralTo be confirmed | Oct 26 2026 2:30pm -Oct 26 2026 3:30pm | Alliance Française of Edmonton - Kingsway": {
         "is_open": false,
         "spots_left": null
+      },
+      "TCF  Canada - December 2 | WrittenWednesday 02 Dec 2026 - 9:20am▸12:20pmOralTo be confirmed | Nov 2 2026 9:30am -Nov 2 2026 11:30am | Alliance Française of Edmonton - Kingsway": {
+        "is_open": false,
+        "spots_left": null
+      },
+      "TCF  Canada - December 2 * | WrittenWednesday 02 Dec 2026 - 1:30pm▸4:30pmOralTo be confirmed | Nov 2 2026 9:30am -Nov 2 2026 11:30am | Alliance Française of Edmonton - Kingsway": {
+        "is_open": false,
+        "spots_left": null
       }
     }
   },
   "Calgary": {
-    "text_hash": "38edb55feb2d6bd6b07470f0c1717b6ee42d44cc197546993709bfc3f6b11111",
+    "text_hash": "50d0f2483763a5f1674e87c1da3e0af25b7a30aaa2f86f697eab271cc863952f",
     "sublinks": {
       "https://www.afcalgary.ca/exams/tcf/tcf-registrations-open-1607/": {
         "sold_out": true
